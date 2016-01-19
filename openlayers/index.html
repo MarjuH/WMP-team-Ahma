@@ -2,31 +2,16 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="http://openlayers.org/en/v3.12.1/css/ol.css" type="text/css">
-    <style>
-      .map {
-        height: 100%;
-        width: 100%;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <script src="http://openlayers.org/en/v3.12.1/build/ol.js" type="text/javascript"></script>
     <title>WMP map</title>
   </head>
   <body>
     <h2>WMP MAP</h2>
     <div id="map" class="map"></div>
-    <script type="text/javascript">
-      var map = new ol.Map({
-        target: 'map',
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.MapQuest({layer: 'osm'})
-          })
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([24.955494, 60.203579]),
-          zoom: 12
-        })
-      });
-    </script>
+	
+	<!-- OSM JavaScript -->
+    <script src="js/map.js"></script>
+
   </body>
 </html>
