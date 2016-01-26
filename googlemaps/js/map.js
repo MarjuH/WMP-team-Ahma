@@ -1,10 +1,4 @@
 var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 60.211, lng: 24.948},
-    zoom: 12
-  });
-}
 
 function onLoadData() {
 	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
