@@ -41,6 +41,22 @@ function initialize() {
             }
         ]
     },
+	{
+		"featureType": "poi.park",
+		"elementType": "geometry.fill",
+		"stylers": [
+		{ "hue": "#44656A" },
+		{ "saturation": -60 },
+		]
+	},
+	{
+		"featureType": "poi.park",
+		"elementType": "labels.text",
+		"stylers": [
+		{ "visibility": "simplified" },
+		{ "lightness": 14 },
+		]
+	},
     {
         "featureType": "road",
         "elementType": "geometry",
@@ -70,7 +86,7 @@ function initialize() {
                 "visibility": "on"
             },
             {
-                "lightness": 15
+                "lightness": 18
             }
         ]
     },
@@ -79,7 +95,7 @@ function initialize() {
         "elementType": "labels.text",
         "stylers": [
             {
-                "lightness": 20
+                "lightness": 15
             }
         ]
     },
@@ -112,7 +128,7 @@ function initialize() {
                 "visibility": "simplified"
             },
             {
-                "lightness": 40
+                "lightness": 30
             }
         ]
     },
@@ -123,7 +139,7 @@ function initialize() {
                 "visibility": "on"
             },
             {
-                "lightness": 49
+                "lightness": 50
             }
         ]
     },
@@ -135,7 +151,7 @@ function initialize() {
                 "visibility": "simplified"
             },
             {
-                "lightness": 30
+                "lightness": 25
             }
         ]
     }
