@@ -14,6 +14,11 @@
 */	  
 	  
 	  
+function onLoadData() {
+    console.log("button clicked");
+}
+
+	  
 var map = new ol.Map({
   target: 'map',
   layers: [
