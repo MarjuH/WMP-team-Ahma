@@ -7,7 +7,21 @@ function initMap() {
 }
 
 function onLoadData() {
-    console.log("button clicked");
+	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
+
+	$.getJSON( url, function( json ) {
+	    $.each( json, function( key, data ) {
+			var latLng = new google.maps.LatLng(data.lat, data.long); 
+			var marker = new google.maps.Marker({
+				position: latLng,
+				map: map,
+				title: data.service_request_id
+			});
+		});
+	})
+	.done(function() {
+		console.log("Loaded data!");
+	});
 }
 
 function initialize() {
@@ -40,6 +54,7 @@ function initialize() {
   var styledMap = new google.maps.StyledMapType(styles,
     {name: "Styled Map"});
 
+
   // Create a map object, and include the MapTypeId to add
   // to the map type control.
   var mapOptions = {
@@ -50,7 +65,7 @@ function initialize() {
     }
   };
   
-  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
   //Associate the styled map with the MapTypeId and set it to display.
   map.mapTypes.set('map_style', styledMap);
