@@ -2,3 +2,11 @@
         height: 100%;
         width: 100%;
       }
+
+
+.button {
+    position: absolute;
+	z-index: 2;
+    top: 10px;
+    right: 10px;
+}
