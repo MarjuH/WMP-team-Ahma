@@ -5,3 +5,7 @@ function initMap() {
     zoom: 12
   });
 }
+
+function onLoadData() {
+    console.log("button clicked");
+}
