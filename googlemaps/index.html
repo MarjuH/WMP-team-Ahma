@@ -34,23 +34,58 @@
                         WMP
                     </a>
 				</li>
-				
 				<li>
-					 <div class="container">
-						<div class="row">
-							<div class='col-sm-2'>
-								<div class="form-group">
-									<div class='input-group date' id='datetimepicker1'>
-										<input type='text' class="form-control" />
-										<span class="input-group-addon">
-											<span class="glyphicon glyphicon-calendar"></span>
-										</span>
-									</div>
-								</div>
+				Alku
+				</li>				
+				<li>
+					 <div class="calendar">
+						<div class="form-group">
+							<div class='input-group date' id='datetimepicker1'>
+								<input type='text' class="form-control" />
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+
 							</div>
 						</div>
 					</div>
                 </li>
+				<li>				
+				Loppu				
+				</li>				
+				<li>
+					 <div class="calendar">
+						<div class='input-group date' id='datetimepicker2'>
+							<input type='text' class="form-control" />
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+						</div>
+					</div>
+                </li>
+				<li>				
+				Valitse palaute tyyppi				
+				</li>
+				<div class="drop-down">
+					<div className="form-group">
+						<label className="control-label col-sm-2" htmlFor="service_code">Aihealue: *</label>
+						<div className="dropdown col-sm-4">
+							<select className="form-control" id="service_code" name="service_code">
+								<option value="0">Valitse</option>
+								<option value="172">Ilkivalta</option>
+								<option value="246">Roskaaminen</option>
+								<option value="176">Töhryjen poisto</option>
+								<option value="171">Katujen kunto</option>
+								<option value="198">Liikennemerkit</option>
+								<option value="199">Kyltit ja opasteet</option>
+								<option value="174">Puistot</option>
+								<option value="211">Leikki- ja liikuntapuistot</option>
+								<option value="234">Metsät</option>
+								<option value="180">Muu korjattava asia</option>
+							</select>
+						</div>
+					</div>
+				</div>
 			</ul>
 		
 		</div>	

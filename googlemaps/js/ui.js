@@ -4,7 +4,14 @@
 	
 $(function () {
 	$('#datetimepicker1').datepicker({
-        locale: 'fi'
+        format: 'dd.mm.yyyy'
+    });
+	
+});
+
+$(function () {
+	$('#datetimepicker2').datepicker({
+        format: 'dd.mm.yyyy'
     });
 	
 });

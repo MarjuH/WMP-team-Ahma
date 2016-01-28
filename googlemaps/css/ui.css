@@ -49,6 +49,18 @@
 
 /* Sidebar Styles */
 
+.calendar{
+	width: 220px;
+	padding: 10px;
+}
+.drop-down{
+	color: #FFC61E;
+	padding: 10px;
+}
+select{
+	color: #000;
+}
+
 .sidebar-nav {
     position: absolute;
     top: 0;
@@ -61,6 +73,8 @@
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
+	color: #FFC61E;
+	font-size: 120%;
 }
 
 .sidebar-nav li a {
