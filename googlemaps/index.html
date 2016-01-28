@@ -7,22 +7,76 @@
 	<!-- Bootstrap, jQuery UI -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>	
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+	<!-- Custom CSS -->
+    <link href="css/ui.css" rel="stylesheet">
+	
+	<!-- datepicker -->
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"</script>	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/css/bootstrap-datepicker.css">
+	<script src="js/fi.js"></script>
+	
 	<title>WMP Feedback viewer map</title>
 </head>
   <body>
-	<button class="button btn btn-primary" onclick="onLoadData()">LOAD DATA</button> 
-    <div id="map">
+	<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a>
+                        WMP
+                    </a>
+				</li>
+				
+				<li>
+					 <div class="container">
+						<div class="row">
+							<div class='col-sm-2'>
+								<div class="form-group">
+									<div class='input-group date' id='datetimepicker1'>
+										<input type='text' class="form-control" />
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </li>
+			</ul>
+		
+		</div>	
+	
+	   
+
+			<button class="button1 btn btn-primary" onclick="onToggleMenu()">Toggle Menu</button>
+			<button class="button btn btn-primary" onclick="onLoadData()">LOAD DATA</button> 
+		
+			
+		
 	</div>
- 
+	<!-- /#wrapper -->
+	<div id="map"></div> 
+	 
 	<!-- Scripts -->
+
+
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK1tIeIkDuX3HlGTSIcHjXeaQf8WdNGGY&callback=initialize">
     </script>
+	<!-- datepicker -->
+
+	
     <script src="js/map.js"></script>
+	<script src="js/ui.js"></script>
   </body>
 </html>
 
