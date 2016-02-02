@@ -56,8 +56,8 @@ var map = new ol.Map({
 });	 
 
 function onLoadData() {
-	//var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
-	var url = "../data/feedback.json";
+	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
+	//var url = "../data/feedback.json";
 	
 	$.getJSON( url, function( json ) {
 	    $.each( json, function( key, data ) {
