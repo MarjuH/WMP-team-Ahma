@@ -6,9 +6,11 @@ function onLoadData() {
 	$.getJSON( url, function( json ) {
 	    $.each( json, function( key, data ) {
 			var latLng = new google.maps.LatLng(data.lat, data.long); 
+			var image = '../img/check.png'
 			var marker = new google.maps.Marker({
 				position: latLng,
 				map: map,
+				icon: image,
 				title: data.service_request_id
 			});
 		});
