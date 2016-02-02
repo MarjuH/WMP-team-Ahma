@@ -5,6 +5,31 @@
  */
 
 /* Toggle Styles */
+html, body { 
+	height: 100%; 
+	margin: 0; 
+	padding: 0; 
+}
+
+#map { 
+	height: 100%; 
+}
+
+
+.button {
+    padding-top: 10px;
+    width: 150px;
+	position: fixed; 
+	left: 50px;
+}
+
+.button1{
+    position: absolute;
+	z-index: 2;
+    top: 10px;
+    left: 260px;
+}
+
 
 #wrapper {
     padding-left: 0;
