@@ -17,10 +17,10 @@ html, body {
 
 
 .button {
-    padding-top: 10px;
     width: 150px;
-	position: fixed; 
 	left: 50px;
+	position: absolute;
+	left: 50 px;
 }
 
 .button1{
