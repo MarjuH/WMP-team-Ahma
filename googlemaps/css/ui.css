@@ -18,9 +18,8 @@ html, body {
 
 .button {
     width: 150px;
-	left: 50px;
+	left: 70px;
 	position: absolute;
-	left: 50 px;
 }
 
 .button1{
@@ -116,6 +115,14 @@ label{
     display: block;
     text-decoration: none;
     color: #FFC61E;
+}
+.sidebar-nav li p {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+	font-size: 12px;
+	line-height: 1.0;
+	padding: 10px;
 }
 
 .sidebar-nav li a:hover {
