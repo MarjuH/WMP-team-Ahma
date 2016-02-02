@@ -11,11 +11,15 @@
           zoom: 12
         })
       });
-*/	  
+*/
+
+$(document).ready(function() {
+	onLoadData();
+});
 	  
 var vectorSource = new ol.source.Vector({
      // empty vector
-})
+});
 
 //create the style
 var iconStyle = new ol.style.Style({
@@ -52,8 +56,9 @@ var map = new ol.Map({
 });	 
 
 function onLoadData() {
-	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
-
+	//var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
+	var url = "../data/feedback.json";
+	
 	$.getJSON( url, function( json ) {
 	    $.each( json, function( key, data ) {
 			var lonlat = [parseFloat(this.long), parseFloat(this.lat)];
@@ -72,7 +77,63 @@ function onLoadData() {
 }
 
 	  
+// Create a popup overlay which will be used to display feature info
+var element = document.getElementById('popup');
+var popup = new ol.Overlay({
+  element: element,
+  positioning: 'bottom-center',
+  stopEvent: false
+});
+map.addOverlay(popup);
 
+
+
+// display popup on click
+map.on('click', function(evt) {
+  var feature = map.forEachFeatureAtPixel(evt.pixel,
+      function(feature, layer) {
+        return feature;
+      });
+  if (feature) {
+    var geometry = feature.getGeometry();
+    var coord = geometry.getCoordinates();
+	var props = feature.getProperties();
+	
+	var info = "<h2>" + props.service_code + "</a></h2>";
+		info += "<p>" + props.description + "</p>";
+		info += "<p>Status: " + props.status + "</p>";
+	
+	// Offset the popup so it points at the middle of the marker not the tip
+	popup.setPosition(coord);
+    $(element).popover({
+      'placement': 'top',
+      'html': true,
+      'content': info
+    });
+    $(element).popover('show');
+  } else {
+    $(element).popover('destroy');
+  }
+});
+
+var cursorHoverStyle = "pointer";
+var target = map.getTarget();
+var jTarget = typeof target === "string" ? $("#"+target) : $(target);
+
+// change mouse cursor when over marker
+map.on('pointermove', function(e) {
+	if (e.dragging) {
+		$(element).popover('destroy');
+		return;
+	}
+	var pixel = map.getEventPixel(e.originalEvent);
+	var hit = map.hasFeatureAtPixel(pixel);
+	if (hit) {
+		jTarget.css("cursor", cursorHoverStyle);
+	} else {
+		jTarget.css("cursor", "");
+	}
+});
 
 
 
