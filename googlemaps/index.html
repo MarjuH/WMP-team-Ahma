@@ -2,123 +2,119 @@
 <html>
   <head>
 	<meta charset="UTF-8"> 
-	<!-- Styles -->
-	<!-- Bootstrap, jQuery UI -->
+	<!-- Bootstrap, jQuery UI CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	
 	<!-- Custom CSS -->
     <link href="../css/style.css" rel="stylesheet">
 	
-	<!-- datepicker -->
-
+	<!-- JavaScript files -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+	<!-- Datepicker -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"</script>	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/css/bootstrap-datepicker.css">
-	<script src="js/fi.js"></script>
+	<script src="../js/fi.js"></script>
 	
-	<title>Helsinki City Feedback Viewer - WMP Team A</title>
+	<title>Helsingin palautekartta - Web Map Project Team A 2016</title>
 </head>
   <body>
 	<div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-			<div class="padd">
-				<ul class="sidebar-nav">
-					<li class="sidebar-brand">
-						<a>
-							HelsinkiCityFeedbackViewer
-						</a>
-					</li>
-					<li>
-					Alku
-					</li>				
-					<li>
-						 <div class="calendar">
-							<div class="form-group">
-								<div class='input-group date' id='datetimepicker1'>
-									<input type='text' class="form-control" />
-										<span class="input-group-addon">
-											<span class="glyphicon glyphicon-calendar"></span>
-										</span>
-
-								</div>
-							</div>
+			<ul class="sidebar-nav">
+				<div class="topic">
+					<h1>Helsingin palautekartta</h1>
+				</div>
+				<li>
+					<label for="datepicker-start">Alku</label>
+				</li>				
+				<li>
+					 <div class="calendar">
+						<div class='input-group date' id='datepicker-start'>
+							<input type='text' class="form-control" />
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar"></span>
+							</span>
 						</div>
-					</li>
-					<li>				
-					Loppu				
-					</li>				
-					<li>
-						 <div class="calendar">
-							<div class='input-group date' id='datetimepicker2'>
-								<input type='text' class="form-control" />
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-calendar"></span>
-									</span>
-							</div>
+					</div>
+				</li>
+				
+				<li>				
+					<label for="datepicker-end">Loppu</label>
+				</li>				
+				<li>
+					 <div class="calendar">
+						<div class='input-group date' id='datepicker-end'>
+							<input type='text' class="form-control" />
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar"></span>
+							</span>
 						</div>
-					</li>
+					</div>
+				</li>
+				
+				<li>
+					<label for="service_code">Aihealue</label>
 					<div class="drop-down">
-						<div className="form-group">
-							<label className="control-label col-sm-2" htmlFor="service_code">Aihealue: *</label>
-							<div className="dropdown col-sm-4">
-								<select className="form-control" id="service_code" name="service_code">
-									<option value="0">Valitse</option>
-									<option value="172">Ilkivalta</option>
-									<option value="246">Roskaaminen</option>
-									<option value="176">Töhryjen poisto</option>
-									<option value="171">Katujen kunto</option>
-									<option value="198">Liikennemerkit</option>
-									<option value="199">Kyltit ja opasteet</option>
-									<option value="174">Puistot</option>
-									<option value="211">Leikki- ja liikuntapuistot</option>
-									<option value="234">Metsät</option>
-									<option value="180">Muu korjattava asia</option>
-								</select>
-							</div>
-						</div>
-					</div>				
-						<button class="btn btn-lg btn-primary btn-block" onclick="onLoadData()">PÄIVITÄ</button> 				
-					<li>				
-					Ohje:
-						<p>
-						Helsinki City Feedback Viewer on nettikarttapalvelu, jossa voit selata Helsingin kaupungille lähetettyjä palautteita. Voit valita, milta ajankohdalta haluat katsoa palautteita, valitsemalla Alku ja Loppu päivämäärän. Voit myos valita minkä tyyppiset palauteet näytetään valitsemaalla tyypin alaveto valikosta.
-						</p>	
-					</li>		
-					<li>
-						<p>
-							<img src="../img/check.png" class="top" alt="Responsive image"> Käsitelty palaute
-						</p>
-					</li>
-					<li>
-						<p>
-							<img src="../img/cancel.png" class="top" alt="Responsive image"> Avoin palaute
-						</p>
-					</li>
-				</ul>
-			</div>	
+						<select class="form-control" id="service_code" name="service_code">
+							<option value="0">Valitse</option>
+							<option value="172">Ilkivalta</option>
+							<option value="246">Roskaaminen</option>
+							<option value="176">Töhryjen poisto</option>
+							<option value="171">Katujen kunto</option>
+							<option value="198">Liikennemerkit</option>
+							<option value="199">Kyltit ja opasteet</option>
+							<option value="174">Puistot</option>
+							<option value="211">Leikki- ja liikuntapuistot</option>
+							<option value="234">Metsät</option>
+							<option value="180">Muu korjattava asia</option>
+						</select>
+					</div>
+				</li>
+				<div class="space"></div>
+				
+				<button class="btn btn-lg btn-primary btn-block" onclick="onLoadData()">PÄIVITÄ</button> 				
+				
+				<div class="space"></div>
+				<li>				
+				Ohje
+					<p>
+					Helsinki City Feedback Viewer on nettikarttapalvelu, jossa voit selata Helsingin kaupungille lähetettyjä palautteita. <br>
+					Voit valita, miltä ajankohdalta haluat katsoa palautteita valitsemalla Alku- ja Loppu-päivämäärän. <br>
+					Voit myos valita minkä tyyppiset palauteet näytetään valitsemalla tyypin alavetovalikosta.
+					</p>	
+				</li>		
+				<li>
+					<p>
+						<img src="../img/check.png" class="top" alt="Responsive image" /> Käsitelty palaute
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="../img/cancel.png" class="top" alt="Responsive image" /> Avoin palaute
+					</p>
+				</li>
+			</ul>
 		</div>	
-			<button class="button1 btn btn-primary" onclick="onToggleMenu()">Toggle Menu</button>		
+		
+		<button class="toggleButton btn btn-primary" onclick="onToggleMenu()">Toggle Menu</button>		
 	</div>
 	<!-- /#wrapper -->
+
+	<!-- Map -->
 	<div id="map"></div> 
 	 
 	<!-- Scripts -->
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK1tIeIkDuX3HlGTSIcHjXeaQf8WdNGGY&callback=initialize">
     </script>
-	<!-- datepicker -->
-
-	
-    <script src="js/map.js"></script>
 	<script src="../js/ui.js"></script>
+    <script src="js/map.js"></script>
   </body>
 </html>
-
-
-

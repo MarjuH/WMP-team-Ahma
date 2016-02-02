@@ -9,21 +9,24 @@ html, body {
 	height: 100%; 
 	margin: 0; 
 	padding: 0; 
+	color: #FFC61E;
 }
 
 #map { 
 	height: 100%; 
 }
 
+.topic {
+	color: #FFC61E;
+}
 
 
-.button1{
+.toggleButton{
     position: absolute;
 	z-index: 2;
     top: 10px;
     left: 260px;
 }
-
 
 #wrapper {
     padding-left: 0;
@@ -69,33 +72,34 @@ html, body {
 
 /* Sidebar Styles */
 
-.padd{
-	padding-right: 0px;
-}
 img.top {
-    vertical-align: text-top;
-	height: 50px;
+    vertical-align: text-center;
+	height: 30px;
 }
 
-.calendar{
+.calendar {
 	width: 220px;
 	padding: 10px;
-	padding-top:0px;
+	padding-top: 0px;
 }
-.drop-down{
+.drop-down {
+	width: 220px;
 	color: #FFC61E;
 	padding: 10px;
+	padding-top: 0px;
 }
-select{
+select {
 	color: #000;
 }
-label{
+label {
     line-height: 40px;
 	color: #FFC61E;
-	font-size: 120%;
 	padding-bottom: 0px;
 	font-weight: normal;
-	padding-left: 10px;
+}
+
+.space {
+	padding: 10px;
 }
 
 .sidebar-nav {
@@ -103,13 +107,11 @@ label{
     top: 0;
     width: 250px;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     list-style: none;
 }
 
 .sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
 	color: #FFC61E;
 	font-size: 120%;
 	padding-bottom: 0px;
@@ -142,7 +144,7 @@ label{
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
+    height: 0px;
     font-size: 18px;
     line-height: 60px;
 }

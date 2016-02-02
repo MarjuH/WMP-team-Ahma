@@ -3,14 +3,14 @@
     }
 	
 $(function () {
-	$('#datetimepicker1').datepicker({
+	$('#datepicker-start').datepicker({
         format: 'dd.mm.yyyy'
     });
 	
 });
 
 $(function () {
-	$('#datetimepicker2').datepicker({
+	$('#datepicker-end').datepicker({
         format: 'dd.mm.yyyy'
     });
 	
