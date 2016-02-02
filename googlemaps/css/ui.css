@@ -16,11 +16,6 @@ html, body {
 }
 
 
-.button {
-    width: 150px;
-	left: 70px;
-	position: absolute;
-}
 
 .button1{
     position: absolute;
@@ -55,6 +50,7 @@ html, body {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+	
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -72,6 +68,14 @@ html, body {
 }
 
 /* Sidebar Styles */
+
+.padd{
+	padding-right: 0px;
+}
+img.top {
+    vertical-align: text-top;
+	height: 50px;
+}
 
 .calendar{
 	width: 220px;
@@ -111,11 +115,7 @@ label{
 	padding-bottom: 0px;
 }
 
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #FFC61E;
-}
+
 .sidebar-nav li p {
     display: block;
     text-decoration: none;
@@ -123,6 +123,11 @@ label{
 	font-size: 12px;
 	line-height: 1.0;
 	padding: 10px;
+}
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #FFC61E;
 }
 
 .sidebar-nav li a:hover {
