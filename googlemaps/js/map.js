@@ -7,12 +7,23 @@ function onLoadData() {
 	    $.each( json, function( key, data ) {
 			var latLng = new google.maps.LatLng(data.lat, data.long); 
 			var image = '../img/check.png'
+			var content = '<h2>' + data.address + '</h2>' +
+				'Kuvaus: ' + data.description;
+				
+			var infowindow = new google.maps.InfoWindow({
+				content: content
+			});
+
 			var marker = new google.maps.Marker({
 				position: latLng,
 				map: map,
 				icon: image,
 				title: data.service_request_id
 			});
+			marker.addListener('click', function() {
+				infowindow.open(map, marker);
+			});
+
 		});
 	})
 	.done(function() {
@@ -174,4 +185,5 @@ function initialize() {
   //Associate the styled map with the MapTypeId and set it to display.
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
+  
 }
