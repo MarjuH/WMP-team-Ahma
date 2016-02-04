@@ -4,20 +4,18 @@
 	<meta charset="UTF-8"> 
 	<!-- Bootstrap, jQuery UI CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	
 	<!-- Custom CSS -->
     <link href="../css/style.css" rel="stylesheet" type="text/css">
 	
 	<!-- JavaScript files -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment-with-locales.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	
 	<!-- Datepicker -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"</script>	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/css/bootstrap-datepicker.css">
+	<script src="../js/bootstrap-datetimepicker.min.js"</script>	
+	<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
 	<script src="../js/fi.js"></script>
 	
 	<title>Helsingin palautekartta - Web Map Project Team A 2016</title>
@@ -36,11 +34,13 @@
 				</li>				
 				<li>
 					 <div class="calendar">
-						<div class='input-group date' id='datepicker-start'>
-							<input type='text' class="form-control" />
-							<span class="input-group-addon">
-								<span class="glyphicon glyphicon-calendar"></span>
-							</span>
+						 <div class="form-group">
+							<div class='input-group date' >
+								<input type='text' class="form-control" id='datepicker-start' />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							</div>
 						</div>
 					</div>
 				</li>
@@ -50,11 +50,13 @@
 				</li>				
 				<li>
 					 <div class="calendar">
-						<div class='input-group date' id='datepicker-end'>
-							<input type='text' class="form-control" />
-							<span class="input-group-addon">
-								<span class="glyphicon glyphicon-calendar"></span>
-							</span>
+						 <div class="form-group">
+							<div class='input-group date' >
+								<input type='text' class="form-control" id='datepicker-end' />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							</div>
 						</div>
 					</div>
 				</li>
