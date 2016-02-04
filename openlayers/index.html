@@ -61,7 +61,7 @@
 				
 				<li>
 					<label for="service_code">Aihealue</label>
-					<div class="drop-down">
+					<!-- <div class="drop-down">
 						<select class="form-control" id="service_code" name="service_code">
 							<option value="0">Valitse</option>
 							<option value="172">Ilkivalta</option>
@@ -76,7 +76,21 @@
 							<option value="180">Muu korjattava asia</option>
 						</select>
 					</div>
+					-->
 				</li>
+				<div class="boksi">
+					<p><b><input type="checkbox" id="kaikki" value="1" /> Kaikki </b> <p/>
+					<p><input type="checkbox" id="ilkivalta" value="172" /> Ilkivalta<p/>
+					<p><input type="checkbox" id="roskaaminen" value="246" /> Roskaaminen<p/>
+					<p><input type="checkbox" id="tohryjenpoisto" value="176" /> Töhryjen poisto<p/>
+					<p><input type="checkbox" id="katujenkunto" value="171" /> Katujen kunto<p/>
+					<p><input type="checkbox" id="liikennemerkit" value="198" /> Liikennemerkit<p/>
+					<p><input type="checkbox" id="kyltitjaopasteet" value="199"> Kyltit ja opasteet<p/>
+					<p><input type="checkbox" id="puistot" value="174"> Puistot<p/>
+					<p><input type="checkbox" id="leikkijaliikuntapuistot" value="211"> Leikki- ja liikuntapuistot<p/>
+					<p><input type="checkbox" id="metsat" value="234"> Metsät<p/>
+					<p><input type="checkbox" id="muu" value="180"> Muu korjattava asia<p/>
+				</div>
 				<div class="space"></div>
 				
 				<button class="btn btn-lg btn-primary btn-block" onclick="onLoadData()">PÄIVITÄ</button> 				
