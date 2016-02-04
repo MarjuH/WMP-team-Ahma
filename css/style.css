@@ -201,6 +201,7 @@ PopUp
 
 #popup{
 	width: 200px;
+	padding-bottom: 45px;
 	
 }
 .popover-content{
