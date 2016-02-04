@@ -13,6 +13,24 @@
       });
 */
 
+var serviceCodes = {
+	"0": 	"Valitse",
+	"172":	"Ilkivalta",
+	"246":	"Roskaaminen",
+	"176":	"Töhryjen poisto",
+	"171":	"Katujen kunto",
+	"198":	"Liikennemerkit",
+	"199":	"Kyltit ja opasteet",
+	"174":	"Puistot",
+	"211":	"Leikki- ja liikuntapuistot",
+	"234":	"Metsät",
+	"180":	"Muu korjattava asia"
+}
+
+function getServiceCodeName(serviceCode) {
+	return serviceCodes[serviceCode];
+}
+
 $(document).ready(function() {
 	onLoadData();
 });
@@ -65,7 +83,7 @@ function onLoadData() {
 			var feature = new ol.Feature({
 				geometry: new ol.geom.Point(ol.proj.fromLonLat(lonlat)),
 				name: this.service_request_id,
-				service_code: this.service_code,
+				service_code: getServiceCodeName(this.service_code),
 				description: this.description,
 				status: this.status,
 				status_notes: this.status_notes,
@@ -99,9 +117,8 @@ map.on('click', function(evt) {
     var coord = geometry.getCoordinates();
 	var props = feature.getProperties();
 	
-	var info = "<h2>" + props.service_code + "</a></h2>";
-		info += "<p><font color= #ffc61e> Kuvaus: </font>" + props.description + "</p>";
-		info += "<p><font color=#ffc61e> Status: </font>" + props.status + "</p>";
+	var info = "<h4>" + props.service_code + " osoitteessa: <br>" + props.address + "</h4>";
+		info += "<p>" + props.description + "</p>";
 	
 	// Offset the popup so it points at the middle of the marker not the tip
 	popup.setPosition(coord);
