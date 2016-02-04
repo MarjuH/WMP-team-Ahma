@@ -1,5 +1,9 @@
 var map;
 
+$(document).ready(function() {
+	onLoadData();
+});
+
 function onLoadData() {
 	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
 
@@ -7,8 +11,9 @@ function onLoadData() {
 	    $.each( json, function( key, data ) {
 			var latLng = new google.maps.LatLng(data.lat, data.long); 
 			var image = '../img/check.png'
-			var content = '<h2>' + data.address + '</h2>' +
-				'Kuvaus: ' + data.description;
+			var content = "<h4>" + getServiceCodeName(data.service_code) + 
+				" osoitteessa: <br>" + data.address + "</h4>" +
+				"Kuvaus: " + data.description;
 				
 			var infowindow = new google.maps.InfoWindow({
 				content: content
