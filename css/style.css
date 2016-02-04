@@ -25,8 +25,9 @@ html, body {
     position: absolute;
 	z-index: 2;
     top: 10px;
-    left: 260px;
+    left: 280px;
 }
+
 
 #wrapper {
     padding-left: 0;
@@ -37,16 +38,16 @@ html, body {
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 270px;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 270px;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -270px;
     overflow-y: auto;
     background: #00337F;
     -webkit-transition: all 0.5s ease;
@@ -57,7 +58,7 @@ html, body {
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 270px;
 }
 
 #page-content-wrapper {
@@ -67,7 +68,7 @@ html, body {
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    margin-right: -270px;
 }
 
 /* Sidebar Styles */
@@ -111,7 +112,7 @@ label {
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 270px;
     margin: 0;
     padding: 10px;
     list-style: none;
@@ -166,7 +167,7 @@ label {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
+        padding-left: 270px;
     }
 
     #wrapper.toggled {
@@ -174,7 +175,7 @@ label {
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 270px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
