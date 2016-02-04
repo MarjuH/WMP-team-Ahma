@@ -5,6 +5,8 @@
  */
 
 /* Toggle Styles */
+
+
 html, body { 
 	height: 100%; 
 	margin: 0; 
@@ -191,4 +193,17 @@ label {
         position: relative;
         margin-right: 0;
     }
+}
+
+/*
+PopUp
+*/
+
+#popup{
+	width: 200px;
+	
+}
+.popover-content{
+	background-color: #0072C6;
+	color: #FFF;
 }

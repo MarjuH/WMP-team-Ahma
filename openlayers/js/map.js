@@ -100,7 +100,7 @@ map.on('click', function(evt) {
 	var props = feature.getProperties();
 	
 	var info = "<h2>" + props.service_code + "</a></h2>";
-		info += "<p>" + props.description + "</p>";
+		info += "<p>Kuvaus: " + props.description + "</p>";
 		info += "<p>Status: " + props.status + "</p>";
 	
 	// Offset the popup so it points at the middle of the marker not the tip
