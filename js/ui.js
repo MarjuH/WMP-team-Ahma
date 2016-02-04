@@ -3,19 +3,22 @@ function onToggleMenu(){
 }
 	
 $(function () {
-	$('#datepicker-start').datepicker({
+	
+	$('#datepicker-start').datetimepicker({
 		defaultDate: moment().subtract(1, 'months'),
-		locale: "fi",
-		format: "dd.mm.yyyy"
+		locale: 'fi',
+		format: 'L',
+		calendarWeeks: true
 	});
 	
 });
 
 $(function () {
-	$('#datepicker-end').datepicker({
+	$('#datepicker-end').datetimepicker({
 		defaultDate: moment(),
-		locale: "fi",
-		format: "dd.mm.yyyy"
+		locale: 'fi',
+		format: 'L',
+		calendarWeeks: true
 	});
 	
 	
@@ -23,10 +26,10 @@ $(function () {
 
 
 $(document).ready(function() {
-	var startDate = moment().subtract(1, 'months');
-	$('#datepicker-start').datepicker('setDate', new Date(startDate));
-	$('#datepicker-start').datepicker('update');
-	
-	$('#datepicker-end').datepicker('setDate', new Date);
-	$('#datepicker-end').datepicker('update');
+		$("#datepicker-start").on("dp.change", function (e) {
+            $('#datepicker-end').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datepicker-end").on("dp.change", function (e) {
+            $('#datepicker-start').data("DateTimePicker").maxDate(e.date);
+        });
 });
