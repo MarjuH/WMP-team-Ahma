@@ -74,7 +74,11 @@ html, body {
 
 img.top {
     vertical-align: text-center;
-	height: 30px;
+	height: 25px;
+}
+
+.boksi{
+	color:#FFC61E;
 }
 
 .calendar {
@@ -124,7 +128,7 @@ label {
     color: #fff;
 	font-size: 12px;
 	line-height: 1.0;
-	padding: 10px;
+	padding: 5px;
 }
 .sidebar-nav li a {
     display: block;
