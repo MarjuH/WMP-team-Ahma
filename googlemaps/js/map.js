@@ -32,7 +32,7 @@ function onLoadData(params) {
 				position: latLng,
 				map: map,
 				icon: image,
-				title: data.service_request_id
+				title: getServiceCodeName(data.service_code)
 			});
 			markers.push(marker);
 			marker.addListener('click', function() {
