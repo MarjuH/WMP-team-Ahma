@@ -82,6 +82,7 @@ img.top {
 .datepicker{
 	color:#000;
 }
+
 .boksi{
 	color:#FFC61E;
 }
@@ -91,17 +92,17 @@ img.top {
 	padding: 10px;
 	padding-top: 0px;
 }
-.drop-down {
+.dropdown {
 	width: 220px;
-	color: #FFC61E;
 	padding: 10px;
 	padding-top: 0px;
 }
+
 select {
 	color: #000;
 }
 label {
-    line-height: 40px;
+    line-height: 20px;
 	color: #FFC61E;
 	padding-bottom: 0px;
 	font-weight: bold;

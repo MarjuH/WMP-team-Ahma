@@ -43,6 +43,50 @@ $(function () {
 });
 
 
+function resolveParameters() {
+	var status = getStatus();
+	var start_date = getStartDate();
+	var end_date = getEndDate();
+	var service_codes = getServiceCodes();
+	
+	var parameters = { 
+		"status" : status,
+		"start_date" : start_date,
+		"end_date" : end_date,
+		"service_codes" : service_codes
+	}
+	
+	console.log(parameters);
+	
+	return parameters;
+}
+
+function getStatus() {
+	var result = "";
+	var status = $("#statuspicker").find("option:selected").text().toLowerCase();
+	
+	if (status !== "kaikki") {
+		if (status === "avoin")
+			result = "open";
+		else
+			result = "closed";
+	}
+	return result;
+}
+
+function getStartDate() {
+	return $("#datepicker-start").data("DateTimePicker").date().toISOString();
+}
+function getEndDate() {
+	return $("#datepicker-end").data("DateTimePicker").date().toISOString();
+}
+function getServiceCodes() {
+	
+	return "";
+}
+
+
+
 $(document).ready(function() {
 		$("#datepicker-start").on("dp.change", function (e) {
             $('#datepicker-end').data("DateTimePicker").minDate(e.date);
@@ -50,4 +94,15 @@ $(document).ready(function() {
         $("#datepicker-end").on("dp.change", function (e) {
             $('#datepicker-start').data("DateTimePicker").maxDate(e.date);
         });
+		
+		$('#kaikki').val($(this).is(':checked'));
+
+		$('#checkbox1').change(function() {
+			if($(this).is(":checked")) {
+				var returnVal = confirm("Are you sure?");
+				$(this).attr("checked", returnVal);
+			}
+			$('#textbox1').val($(this).is(':checked'));        
+		});		
+		
 });

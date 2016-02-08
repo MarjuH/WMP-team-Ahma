@@ -82,10 +82,11 @@ var map = new ol.Map({
 });	 
 
 function onLoadData() {
-	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z";
-	//var url = "../data/feedback.json";
+	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json";
 	
-	$.getJSON( url, function( json ) {
+	var params = resolveParameters();
+	
+	$.getJSON( url, params, function( json ) {
 	    $.each( json, function( key, data ) {
 			if (this.long !== undefined || this.lat !== undefined) {
 					

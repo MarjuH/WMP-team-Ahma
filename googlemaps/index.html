@@ -29,10 +29,24 @@
 				<div class="topic">
 					<h1>Helsingin palautekartta</h1>
 				</div>
+				
+				<div class="space"></div>
+				
+				<li>
+					<label for="statuspicker">Tila</label>
+					<div class="dropdown">
+						<select class="form-control" id="statuspicker" name="statuspicker">
+							<option value="0">Kaikki</option>
+							<option value="1">Avoin</option>
+							<option value="2">Suljettu</option>
+						</select>
+					</div>
+				</li>
+				
+				<div class="space"></div>
+				
 				<li>
 					<label for="datepicker-start">Alku</label>
-				</li>				
-				<li>
 					 <div class="calendar">
 						 <div class="form-group">
 							<div class='input-group date' >
@@ -43,12 +57,7 @@
 							</div>
 						</div>
 					</div>
-				</li>
-				
-				<li>				
 					<label for="datepicker-end">Loppu</label>
-				</li>				
-				<li>
 					 <div class="calendar">
 						 <div class="form-group">
 							<div class='input-group date' >
@@ -62,36 +71,22 @@
 				</li>
 				
 				<li>
-					
 					<label for="service_code">Aihealue</label>
-					<!-- <div class="drop-down">
-						<select class="form-control" id="service_code" name="service_code">
-							<option value="0">Valitse</option>
-							<option value="172">Ilkivalta</option>
-							<option value="246">Roskaaminen</option>
-							<option value="176">Töhryjen poisto</option>
-							<option value="171">Katujen kunto</option>
-							<option value="198">Liikennemerkit</option>
-							<option value="199">Kyltit ja opasteet</option>
-							<option value="174">Puistot</option>
-							<option value="211">Leikki- ja liikuntapuistot</option>
-							<option value="234">Metsät</option>
-							<option value="180">Muu korjattava asia</option>
-						</select>
-					</div>
-					-->
 				</li>
-				<p><b><input type="checkbox" id="kaikki" value="1" /> Kaikki </b> <p/>
-				<p><input type="checkbox" id="ilkivalta" value="172" /> Ilkivalta<p/>
-				<p><input type="checkbox" id="roskaaminen" value="246" /> Roskaaminen<p/>
-				<p><input type="checkbox" id="tohryjenpoisto" value="176" /> Töhryjen poisto<p/>
-				<p><input type="checkbox" id="katujenkunto" value="171" /> Katujen kunto<p/>
-				<p><input type="checkbox" id="liikennemerkit" value="198" /> Liikennemerkit<p/>
-				<p><input type="checkbox" id="kyltitjaopasteet" value="199"> Kyltit ja opasteet<p/>
-				<p><input type="checkbox" id="puistot" value="174"> Puistot<p/>
-				<p><input type="checkbox" id="leikkijaliikuntapuistot" value="211"> Leikki- ja liikuntapuistot<p/>
-				<p><input type="checkbox" id="metsat" value="234"> Metsät<p/>
-				<p><input type="checkbox" id="muu" value="180"> Muu korjattava asia<p/>
+				
+				<div class="boksi">
+					<p><b><input type="checkbox" id="kaikki" value="1" /> Kaikki </b> <p/>
+					<p><input type="checkbox" id="ilkivalta" value="172" /> Ilkivalta<p/>
+					<p><input type="checkbox" id="roskaaminen" value="246" /> Roskaaminen<p/>
+					<p><input type="checkbox" id="tohryjenpoisto" value="176" /> Töhryjen poisto<p/>
+					<p><input type="checkbox" id="katujenkunto" value="171" /> Katujen kunto<p/>
+					<p><input type="checkbox" id="liikennemerkit" value="198" /> Liikennemerkit<p/>
+					<p><input type="checkbox" id="kyltitjaopasteet" value="199"> Kyltit ja opasteet<p/>
+					<p><input type="checkbox" id="puistot" value="174"> Puistot<p/>
+					<p><input type="checkbox" id="leikkijaliikuntapuistot" value="211"> Leikki- ja liikuntapuistot<p/>
+					<p><input type="checkbox" id="metsat" value="234"> Metsät<p/>
+					<p><input type="checkbox" id="muu" value="180"> Muu korjattava asia<p/>
+				</div>
 
 				<div class="space"></div>
 				
