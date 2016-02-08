@@ -106,7 +106,6 @@ $(document).ready(function() {
         });
 		
 		$("#checkAllBtn").click(function(){
-			console.log("checkAllBtn clicked");
 			$("input:checkbox").prop('checked', true);
 		});
 });
