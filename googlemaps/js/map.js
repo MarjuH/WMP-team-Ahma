@@ -12,7 +12,13 @@ function onLoadData(params) {
 	$.getJSON( url, params, function( json ) {
 	    $.each( json, function( key, data ) {
 			var latLng = new google.maps.LatLng(data.lat, data.long); 
-			var image = '../img/check.png'
+			var image
+			if (this.status === 'open'){
+				image = '../img/cancel.png'
+			}
+			else if (this.status === 'closed'){
+				image = '../img/check.png'
+			}
 			var content = "<h4>" + getServiceCodeName(data.service_code) + 
 				" osoitteessa: <br>" + data.address + "</h4>" +
 				"Kuvaus: " + data.description;
