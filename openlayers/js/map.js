@@ -16,14 +16,21 @@
 $(document).ready(function() {
 	onLoadData();
 });
-	  
-var vectorSource = new ol.source.Vector({
+	
+
+var vectorSourceClosed = new ol.source.Vector({
      // empty vector
 });
 
+
+var vectorSourceOpen = new ol.source.Vector({
+     // empty vector
+});
+
+
 //create the style
-var iconStyle = new ol.style.Style({
-    image: new ol.style.Icon(/**@type {olx.style.IconOptions}*/({
+var iconStyleClosed = new ol.style.Style({
+    image: new ol.style.Icon(({
         anchor: [0.5, 46],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
@@ -32,11 +39,29 @@ var iconStyle = new ol.style.Style({
      }))
 });
 
+
+var iconStyleOpen = new ol.style.Style({
+    image: new ol.style.Icon(({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        opacity: 1,
+        src: '../img/cancel.png'
+     }))
+});
+
+
 // and apply a style to whole layer
-var vectorLayer = new ol.layer.Vector({
-    source: vectorSource,
-    style: iconStyle
+var vectorLayerClosed = new ol.layer.Vector({
+    source: vectorSourceClosed,
+    style: iconStyleClosed
 });	  
+
+
+var vectorLayerOpen = new ol.layer.Vector({
+    source: vectorSourceOpen,
+    style: iconStyleOpen
+});	 
 	  
 var map = new ol.Map({
 	target: 'map',
@@ -47,7 +72,8 @@ var map = new ol.Map({
 			attributions: [new ol.Attribution({ html: ['&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'] })]
 			})
 		}),
-		vectorLayer
+		vectorLayerClosed,
+		vectorLayerOpen
 	],
 	view: new ol.View({
 		center: ol.proj.fromLonLat([24.955494, 60.18]),
@@ -56,22 +82,33 @@ var map = new ol.Map({
 });	 
 
 function onLoadData() {
-	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
+	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z";
 	//var url = "../data/feedback.json";
 	
 	$.getJSON( url, function( json ) {
 	    $.each( json, function( key, data ) {
-			var lonlat = [parseFloat(this.long), parseFloat(this.lat)];
-			var feature = new ol.Feature({
-				geometry: new ol.geom.Point(ol.proj.fromLonLat(lonlat)),
-				name: this.service_request_id,
-				service_code: getServiceCodeName(this.service_code),
-				description: this.description,
-				status: this.status,
-				status_notes: this.status_notes,
-				address: this.address
-			});
-			vectorSource.addFeature(feature);
+			if (this.long !== undefined || this.lat !== undefined) {
+					
+				var lonlat = [parseFloat(this.long), parseFloat(this.lat)];
+				var feature = new ol.Feature({
+					geometry: new ol.geom.Point(ol.proj.fromLonLat(lonlat)),
+					name: this.service_request_id,
+					service_code: getServiceCodeName(this.service_code),
+					description: this.description,
+					status: this.status,
+					status_notes: this.status_notes,
+					address: this.address
+				});
+				
+				if (this.status === 'open'){
+					vectorSourceOpen.addFeature(feature);					
+				}
+				
+				else{
+					vectorSourceClosed.addFeature(feature);
+					console.log(this.status)
+				} 
+			}
 		});
 	})
 }
