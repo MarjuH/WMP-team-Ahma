@@ -181,7 +181,8 @@ function initialize() {
     zoom: 12,
     center: new google.maps.LatLng(60.211, 24.948),
     mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style'],
+	  position: google.maps.ControlPosition.TOP_RIGHT
     }
   };
   
