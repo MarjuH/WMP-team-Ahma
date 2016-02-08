@@ -1,17 +1,15 @@
 var map;
 
 $(document).ready(function() {
-	var start_date = getStartDate();
-	var end_date = getEndDate();
-	
 	onLoadData();
 });
 
 function onLoadData(params) {
 	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json";
 	
-
-	$.getJSON( url, function( json ) {
+	var params = resolveParameters();
+	
+	$.getJSON( url, params, function( json ) {
 	    $.each( json, function( key, data ) {
 			var latLng = new google.maps.LatLng(data.lat, data.long); 
 			var image = '../img/check.png'
@@ -38,6 +36,7 @@ function onLoadData(params) {
 	.done(function() {
 		console.log("Loaded data!");
 	});
+	
 }
 
 function initialize() {
