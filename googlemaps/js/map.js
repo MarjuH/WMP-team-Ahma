@@ -1,4 +1,5 @@
 var map;
+var infowindow;
 
 $(document).ready(function() {
 	onLoadData();
@@ -26,10 +27,6 @@ function onLoadData(params) {
 			var content = "<h4>" + getServiceCodeName(data.service_code) + 
 				" osoitteessa: <br>" + data.address + "</h4>" +
 				"Kuvaus: " + data.description;
-				
-			var infowindow = new google.maps.InfoWindow({
-				content: content
-			});
 
 			var marker = new google.maps.Marker({
 				position: latLng,
@@ -39,7 +36,8 @@ function onLoadData(params) {
 			});
 			markers.push(marker);
 			marker.addListener('click', function() {
-				infowindow.open(map, marker);
+				infowindow.setContent(content);
+				infowindow.open(map, this);
 			});
 
 		});
@@ -209,7 +207,7 @@ function initialize() {
   };
   
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+  infowindow = new google.maps.InfoWindow();
   //Associate the styled map with the MapTypeId and set it to display.
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
