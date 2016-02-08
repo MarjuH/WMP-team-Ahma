@@ -42,7 +42,6 @@ $(function () {
 	
 });
 
-
 function resolveParameters() {
 	var status = getStatus();
 	var start_date = getStartDate();
@@ -55,9 +54,7 @@ function resolveParameters() {
 		"end_date" : end_date,
 		"service_code" : service_codes
 	}
-	
-	console.log(parameters);
-	
+
 	return parameters;
 }
 
@@ -99,44 +96,7 @@ function getServiceCodes() {
 		}
 	}
 	
-	console.log(result);
-	
 	return result;
-}
-
-/*
-function checkAllBoxes() {
-	// See if all the boxes are checked or none of the boxes are checked
-	if (($("#ilkivalta").is(":checked") &&
-		$("#roskaaminen").is(":checked") &&
-		$("#tohryjenpoisto").is(":checked") &&
-		$("#katujenkunto").is(":checked") &&
-		$("#liikennemerkit").is(":checked") &&
-		$("#kyltitjaopasteet").is(":checked") &&
-		$("#puistot").is(":checked") &&
-		$("#leikkijaliikuntapuistot").is(":checked") &&
-		$("#metsat").is(":checked") &&
-		$("#muu").is(":checked")) 
-		||
-		(!$("#ilkivalta").is(":checked") &&
-		!$("#roskaaminen").is(":checked") &&
-		!$("#tohryjenpoisto").is(":checked") &&
-		!$("#katujenkunto").is(":checked") &&
-		!$("#liikennemerkit").is(":checked") &&
-		!$("#kyltitjaopasteet").is(":checked") &&
-		!$("#puistot").is(":checked") &&
-		!$("#leikkijaliikuntapuistot").is(":checked") &&
-		!$("#metsat").is(":checked") &&
-		!$("#muu").is(":checked"))
-		) 
-	{
-		$("#kaikki").prop("checked", true);
-	}
-}
-*/
-
-function selectAllCheckboxes() {
-	$('input:checkbox').not(this).prop('checked', this.checked);
 }
 
 $(document).ready(function() {
@@ -151,31 +111,4 @@ $(document).ready(function() {
 			console.log("checkAllBtn clicked");
 			$("input:checkbox").prop('checked', true);
 		});
-		
-		/*
-		$("#kaikki").change(function() {
-			var isChecked = $(this).is(":checked");
-			$("#ilkivalta").prop("checked", isChecked);
-			$("#roskaaminen").prop("checked", isChecked);
-			$("#tohryjenpoisto").prop("checked", isChecked);
-			$("#katujenkunto").prop("checked", isChecked);
-			$("#liikennemerkit").prop("checked", isChecked);
-			$("#kyltitjaopasteet").prop("checked", isChecked);
-			$("#puistot").prop("checked", isChecked);
-			$("#leikkijaliikuntapuistot").prop("checked", isChecked);
-			$("#metsat").prop("checked", isChecked);
-			$("#muu").prop("checked", isChecked);
-		});	
-
-		$("#ilkivalta").change(function() 				{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#roskaaminen").change(function() 			{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#tohryjenpoisto").change(function() 			{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#katujenkunto").change(function() 			{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#liikennemerkit").change(function() 			{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#kyltitjaopasteet").change(function() 		{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#puistot").change(function() 				{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#leikkijaliikuntapuistot").change(function() {$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#metsat").change(function() 					{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		$("#muu").change(function() 					{$("#kaikki").prop("checked", false); checkAllBoxes();});
-		*/
 });
