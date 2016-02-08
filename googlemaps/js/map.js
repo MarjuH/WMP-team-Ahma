@@ -26,7 +26,7 @@ function onLoadData(params) {
 			}
 			var content = "<h4>" + getServiceCodeName(data.service_code) + 
 				" osoitteessa: <br>" + data.address + "</h4>" +
-				"Kuvaus: " + data.description;
+				data.description;
 
 			var marker = new google.maps.Marker({
 				position: latLng,
