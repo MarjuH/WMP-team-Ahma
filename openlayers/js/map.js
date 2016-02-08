@@ -137,7 +137,7 @@ map.on('click', function(evt) {
 	var props = feature.getProperties();
 	
 	var info = "<h4>" + props.service_code + " osoitteessa: <br>" + props.address + "</h4>";
-		info += "<p>" + props.description + props.status+ "</p>";
+		info += "<p>" + props.description + "</p>";
 	
 	// Offset the popup so it points at the middle of the marker not the tip
 	popup.setPosition(coord);
