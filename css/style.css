@@ -208,3 +208,10 @@ PopUp
 	background-color: #0072C6;
 	color: #FFF;
 }
+
+/* OL zoom position */
+
+.ol-control.ol-zoom {
+   right: 8px;
+   left: auto
+}
