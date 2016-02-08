@@ -100,10 +100,8 @@ function onLoadData() {
 					address: this.address
 				});
 				
-				vectorSourceOpen.addFeature(feature);
 				if (this.status === 'open'){
-					vectorSourceOpen.addFeature(feature);
-					
+					vectorSourceOpen.addFeature(feature);					
 				}
 				
 				else{
