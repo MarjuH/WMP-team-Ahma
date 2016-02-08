@@ -112,7 +112,6 @@ function onLoadData() {
 				
 				else{
 					vectorSourceClosed.addFeature(feature);
-					console.log(this.status)
 				} 
 			}
 		});

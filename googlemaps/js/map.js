@@ -45,7 +45,7 @@ function onLoadData(params) {
 		});
 	})
 	.done(function() {
-		console.log("Loaded data!");
+
 	});
 	
 }
