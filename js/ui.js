@@ -53,7 +53,7 @@ function resolveParameters() {
 		"status" : status,
 		"start_date" : start_date,
 		"end_date" : end_date,
-		"service_codes" : service_codes
+		"service_code" : service_codes
 	}
 	
 	console.log(parameters);
@@ -81,11 +81,63 @@ function getEndDate() {
 	return $("#datepicker-end").data("DateTimePicker").date().toISOString();
 }
 function getServiceCodes() {
+	var result = "";
+	var sel = $('input[type=checkbox]:checked').map(function(_, el) {
+        return $(el).val();
+    }).get();
 	
-	return "";
+	if (sel.length > 0) {
+		for (var i=0; i < sel.length; i++) {
+			if (sel[i] !== "1") {
+				if (result === "") {
+					result = sel[i];
+				} 
+				else {
+					result += "," + sel[i];
+				}
+			}
+		}
+	}
+	
+	console.log(result);
+	
+	return result;
 }
 
+/*
+function checkAllBoxes() {
+	// See if all the boxes are checked or none of the boxes are checked
+	if (($("#ilkivalta").is(":checked") &&
+		$("#roskaaminen").is(":checked") &&
+		$("#tohryjenpoisto").is(":checked") &&
+		$("#katujenkunto").is(":checked") &&
+		$("#liikennemerkit").is(":checked") &&
+		$("#kyltitjaopasteet").is(":checked") &&
+		$("#puistot").is(":checked") &&
+		$("#leikkijaliikuntapuistot").is(":checked") &&
+		$("#metsat").is(":checked") &&
+		$("#muu").is(":checked")) 
+		||
+		(!$("#ilkivalta").is(":checked") &&
+		!$("#roskaaminen").is(":checked") &&
+		!$("#tohryjenpoisto").is(":checked") &&
+		!$("#katujenkunto").is(":checked") &&
+		!$("#liikennemerkit").is(":checked") &&
+		!$("#kyltitjaopasteet").is(":checked") &&
+		!$("#puistot").is(":checked") &&
+		!$("#leikkijaliikuntapuistot").is(":checked") &&
+		!$("#metsat").is(":checked") &&
+		!$("#muu").is(":checked"))
+		) 
+	{
+		$("#kaikki").prop("checked", true);
+	}
+}
+*/
 
+function selectAllCheckboxes() {
+	$('input:checkbox').not(this).prop('checked', this.checked);
+}
 
 $(document).ready(function() {
 		$("#datepicker-start").on("dp.change", function (e) {
@@ -95,14 +147,35 @@ $(document).ready(function() {
             $('#datepicker-start').data("DateTimePicker").maxDate(e.date);
         });
 		
-		$('#kaikki').val($(this).is(':checked'));
-
-		$('#checkbox1').change(function() {
-			if($(this).is(":checked")) {
-				var returnVal = confirm("Are you sure?");
-				$(this).attr("checked", returnVal);
-			}
-			$('#textbox1').val($(this).is(':checked'));        
-		});		
+		$("#checkAllBtn").click(function(){
+			console.log("checkAllBtn clicked");
+			$("input:checkbox").prop('checked', true);
+		});
 		
+		/*
+		$("#kaikki").change(function() {
+			var isChecked = $(this).is(":checked");
+			$("#ilkivalta").prop("checked", isChecked);
+			$("#roskaaminen").prop("checked", isChecked);
+			$("#tohryjenpoisto").prop("checked", isChecked);
+			$("#katujenkunto").prop("checked", isChecked);
+			$("#liikennemerkit").prop("checked", isChecked);
+			$("#kyltitjaopasteet").prop("checked", isChecked);
+			$("#puistot").prop("checked", isChecked);
+			$("#leikkijaliikuntapuistot").prop("checked", isChecked);
+			$("#metsat").prop("checked", isChecked);
+			$("#muu").prop("checked", isChecked);
+		});	
+
+		$("#ilkivalta").change(function() 				{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#roskaaminen").change(function() 			{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#tohryjenpoisto").change(function() 			{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#katujenkunto").change(function() 			{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#liikennemerkit").change(function() 			{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#kyltitjaopasteet").change(function() 		{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#puistot").change(function() 				{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#leikkijaliikuntapuistot").change(function() {$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#metsat").change(function() 					{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		$("#muu").change(function() 					{$("#kaikki").prop("checked", false); checkAllBoxes();});
+		*/
 });
