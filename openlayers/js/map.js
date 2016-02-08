@@ -18,6 +18,11 @@ $(document).ready(function() {
 });
 	
 
+function clearMap() {
+  vectorSourceClosed.clear();
+  vectorSourceOpen.clear();
+}; 
+	
 var vectorSourceClosed = new ol.source.Vector({
      // empty vector
 });
@@ -83,9 +88,9 @@ var map = new ol.Map({
 
 function onLoadData() {
 	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json";
-	
+	vectorSourceClosed.clear();
+	vectorSourceOpen.clear();
 	var params = resolveParameters();
-	
 	$.getJSON( url, params, function( json ) {
 	    $.each( json, function( key, data ) {
 			if (this.long !== undefined || this.lat !== undefined) {

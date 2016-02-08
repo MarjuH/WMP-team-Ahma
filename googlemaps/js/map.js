@@ -4,15 +4,19 @@ $(document).ready(function() {
 	onLoadData();
 });
 
+var markers = [];
+
 function onLoadData(params) {
 	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json";
 	
 	var params = resolveParameters();
-	
+	clearMarkers();
+	markers = [];
+
 	$.getJSON( url, params, function( json ) {
 	    $.each( json, function( key, data ) {
 			var latLng = new google.maps.LatLng(data.lat, data.long); 
-			var image
+			var image;
 			if (this.status === 'open'){
 				image = '../img/cancel.png'
 			}
@@ -33,6 +37,7 @@ function onLoadData(params) {
 				icon: image,
 				title: data.service_request_id
 			});
+			markers.push(marker);
 			marker.addListener('click', function() {
 				infowindow.open(map, marker);
 			});
@@ -43,6 +48,14 @@ function onLoadData(params) {
 		console.log("Loaded data!");
 	});
 	
+}
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+function clearMarkers() {
+  setMapOnAll(null);
 }
 
 function initialize() {
