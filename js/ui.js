@@ -26,7 +26,7 @@ $(function () {
 		defaultDate: moment().subtract(1, 'months'),
 		locale: 'fi',
 		format: 'L',
-		calendarWeeks: true
+		debug: true,
 	});
 	
 });
@@ -36,7 +36,7 @@ $(function () {
 		defaultDate: moment(),
 		locale: 'fi',
 		format: 'L',
-		calendarWeeks: true
+		debug: true,
 	});
 	
 	
