@@ -26,7 +26,6 @@ $(function () {
 		defaultDate: moment().subtract(1, 'months'),
 		locale: 'fi',
 		format: 'L',
-		debug: true,
 	});
 	
 });
@@ -36,7 +35,6 @@ $(function () {
 		defaultDate: moment(),
 		locale: 'fi',
 		format: 'L',
-		debug: true,
 	});
 	
 	
