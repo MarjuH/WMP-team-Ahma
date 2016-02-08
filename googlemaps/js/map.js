@@ -1,11 +1,15 @@
 var map;
 
 $(document).ready(function() {
+	var start_date = getStartDate();
+	var end_date = getEndDate();
+	
 	onLoadData();
 });
 
-function onLoadData() {
-	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json?start_date=2015-05-24T00:00:00Z&end_date=2015-06-24T00:00:00Z&status=open";
+function onLoadData(params) {
+	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json";
+	
 
 	$.getJSON( url, function( json ) {
 	    $.each( json, function( key, data ) {
