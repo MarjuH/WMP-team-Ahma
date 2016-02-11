@@ -146,11 +146,9 @@ map.on('click', function(evt) {
 	
 	// Offset the popup so it points at the middle of the marker not the tip
 	popup.setPosition(coord);
-    $(element).popover({
-      'placement': 'top',
-      'html': true,
-      'content': info
-    });
+    $(element).attr('data-placement', 'top');
+	$(element).attr('data-html', true);
+	$(element).attr('data-content', info);
     $(element).popover('show');
   } else {
     $(element).popover('destroy');
