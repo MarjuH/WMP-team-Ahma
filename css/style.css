@@ -98,7 +98,7 @@ img.top {
 }
 
 .boksi{
-	color:#FFC61E;
+	color:#000;
 }
 
 .calendar {
@@ -217,11 +217,14 @@ PopUp OL
 #popup{
 	width: 400px;
 	padding-bottom: 45px;
+
 	
 }
 .popover-content{
 	background-color: #0072C6;
 	color: #FFF;
+	max-height: 400px;
+    overflow-y: auto;
 }
 
 /* OL zoom position */
