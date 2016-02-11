@@ -1,5 +1,6 @@
 var map;
 var infowindow;
+var center;
 
 $(document).ready(function() {
 	onLoadData();
@@ -64,9 +65,9 @@ function onLoadData(params) {
 }
 
 function onHelsinkiBtnClicked() {
-	// @TODO : center to starting extent/zoom/location
+	map.setZoom(center.zoom);
+	map.panTo(center.latlng);
 }
-
 
 function setMapOnAll(map) {
   for (var i = 0; i < markers.length; i++) {
@@ -220,12 +221,16 @@ function initialize() {
   var styledMap = new google.maps.StyledMapType(styles,
     {name: "Light Map"});
 
+  center = {
+	zoom: 12,
+	latlng : (new google.maps.LatLng(60.211, 24.948))
+  }
 
   // Create a map object, and include the MapTypeId to add
   // to the map type control.
   var mapOptions = {
-    zoom: 12,
-    center: new google.maps.LatLng(60.211, 24.948),
+    zoom: center.zoom,
+    center: center.latlng,
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style'],
 	  position: google.maps.ControlPosition.TOP_RIGHT
