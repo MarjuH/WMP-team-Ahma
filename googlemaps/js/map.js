@@ -14,6 +14,9 @@ function onLoadData(params) {
 	
 	clearMarkers();
 	
+	$("#loadDataButton").text("Ladataan...");
+	$("#loadDataButton").prop("disabled", true);
+	
 	var params = resolveParameters();
 
 	$.getJSON( url, params, function( json ) {
@@ -60,6 +63,10 @@ function onLoadData(params) {
 			map.setCenter(cluster.getCenter());
 			map.setZoom(map.getZoom()+1);
 		});
+	})
+	.always(function() {
+		$("#loadDataButton").text("PÄIVITÄ");
+		$("#loadDataButton").prop("disabled", false);
 	});
 	
 }

@@ -87,10 +87,17 @@ var map = new ol.Map({
 });	 
 
 function onLoadData() {
+	
+	
+	
 	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json";
 	vectorSourceClosed.clear();
 	vectorSourceOpen.clear();
 	var params = resolveParameters();
+
+	$("#loadDataButton").text("Ladataan...");
+	$("#loadDataButton").prop("disabled", true);
+		
 	$.getJSON( url, params, function( json ) {
 	    $.each( json, function( key, data ) {
 			if (this.long !== undefined || this.lat !== undefined) {
@@ -109,13 +116,18 @@ function onLoadData() {
 				if (this.status === 'open'){
 					vectorSourceOpen.addFeature(feature);					
 				}
-				
-				else{
+				else {
 					vectorSourceClosed.addFeature(feature);
 				} 
 			}
 		});
 	})
+	.always(function() {
+			$("#loadDataButton").text("PÄIVITÄ");
+			$("#loadDataButton").prop("disabled", false);
+	});
+	
+	
 }
 var helsinki = ol.proj.fromLonLat([24.955494, 60.18])
 function onHelsinkiBtnClicked() {
