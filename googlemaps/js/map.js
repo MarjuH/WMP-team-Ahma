@@ -6,23 +6,29 @@ $(document).ready(function() {
 });
 
 var markers = [];
+var markerCluster = null;
 
 function onLoadData(params) {
 	var url = "https://asiointi.hel.fi/palautews/rest/v1/requests.json";
 	
-	var params = resolveParameters();
 	clearMarkers();
-	markers = [];
+	
+	var params = resolveParameters();
 
 	$.getJSON( url, params, function( json ) {
 	    $.each( json, function( key, data ) {
 			var latLng = new google.maps.LatLng(data.lat, data.long); 
-			var image;
+			var image = null;
 			if (this.status === 'open'){
-				image = '../img/cancel.png'
+				image = { 
+					url : "../img/cancel.png",
+				}
 			}
 			else if (this.status === 'closed'){
-				image = '../img/check.png'
+				image = { 
+					url : "../img/check.png",
+					scaledSize : new google.maps.Size(28, 28),
+				}
 			}
 			var content = "<h4>" + getServiceCodeName(data.service_code) + 
 				" osoitteessa: <br>" + data.address + "</h4>" +
@@ -43,7 +49,16 @@ function onLoadData(params) {
 		});
 	})
 	.done(function() {
-
+		markerCluster = new MarkerClusterer(map, markers, {
+			maxZoom : 16, 
+			zoomOnClick: false,
+			minimumClusterSize: 3
+		});
+		
+		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster){
+			map.setCenter(cluster.getCenter());
+			map.setZoom(map.getZoom()+1);
+		});
 	});
 	
 }
@@ -54,6 +69,11 @@ function setMapOnAll(map) {
 }
 function clearMarkers() {
   setMapOnAll(null);
+  markers = [];
+  if (markerCluster !== null) {
+	markerCluster.clearMarkers();
+	markerCluster = [];
+  }
 }
 
 function initialize() {
