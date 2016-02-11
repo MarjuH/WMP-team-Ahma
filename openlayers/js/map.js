@@ -117,9 +117,15 @@ function onLoadData() {
 		});
 	})
 }
-
+var helsinki = ol.proj.fromLonLat([24.955494, 60.18])
 function onHelsinkiBtnClicked() {
-	// @TODO : center to starting extent/zoom/location
+	var pan = ol.animation.pan({
+          source: map.getView().getCenter()
+        });
+        map.beforeRender(pan);
+        // when we set the new location, the map will pan smoothly to it
+        map.getView().setCenter(helsinki);
+		map.getView().setZoom(13);
 }
 
 // Create a popup overlay which will be used to display feature info
