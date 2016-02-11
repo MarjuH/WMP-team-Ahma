@@ -118,7 +118,10 @@ function onLoadData() {
 	})
 }
 
-	  
+function onHelsinkiBtnClicked() {
+	// @TODO : center to starting extent/zoom/location
+}
+
 // Create a popup overlay which will be used to display feature info
 var element = document.getElementById('popup');
 var popup = new ol.Overlay({
