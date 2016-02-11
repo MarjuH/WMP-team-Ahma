@@ -214,16 +214,17 @@ label {
 PopUp OL
 */
 
-#popup{
-	width: 400px;
-	padding-bottom: 45px;
-
-	
-}
-.popover-content{
+#popup {
+	position: absolute;
+	left: -200px;
 	background-color: #0072C6;
 	color: #FFF;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #FFF;
+	bottom: 40px;
 	max-height: 400px;
+	width: 400px;
     overflow-y: auto;
 }
 
@@ -232,4 +233,15 @@ PopUp OL
 .ol-control.ol-zoom {
    right: 8px;
    left: auto
+}
+
+.ol-popup-closer {
+	text-decoration: none;
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	color: #FFF;
+}
+.ol-popup-closer:after {
+	content: "✖";
 }

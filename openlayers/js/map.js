@@ -143,18 +143,24 @@ function onHelsinkiBtnClicked() {
 }
 
 // Create a popup overlay which will be used to display feature info
-var element = document.getElementById('popup');
+var container = document.getElementById('popup');
+var content = document.getElementById('popup-content');
 var popup = new ol.Overlay({
-  element: element,
-  positioning: 'bottom-center',
-  stopEvent: false
+	element: container,
+	positioning: 'bottom-center',
+	autoPan: true,
+	autoPanAnimation: {
+	  duration: 250
+	}
+	//stopEvent: false
 });
 map.addOverlay(popup);
 
 
 
 // display popup on click
-map.on('click', function(evt) {
+map.on('singleclick', function(evt) {
+	
   var feature = map.forEachFeatureAtPixel(evt.pixel,
       function(feature, layer) {
         return feature;
@@ -166,17 +172,30 @@ map.on('click', function(evt) {
 	
 	var info = "<h4>" + props.service_code + " osoitteessa: <br>" + props.address + "</h4>";
 		info += "<p>" + props.description + "</p>";
+		
+	content.innerHTML = info;
 	
 	// Offset the popup so it points at the middle of the marker not the tip
 	popup.setPosition(coord);
-    $(element).attr('data-placement', 'top');
-	$(element).attr('data-html', true);
-	$(element).attr('data-content', info);
-    $(element).popover('show');
+	
+	/*
+    $(content).attr('data-placement', 'top');
+	$(content).attr('data-html', true);
+	$(content).attr('data-content', info);
+    $(content).popover('show');
+	*/
+	
   } else {
-    $(element).popover('destroy');
+    //$(container).popover('destroy');
   }
 });
+
+var closer = document.getElementById('popup-closer');
+closer.onclick = function() {
+  popup.setPosition(undefined);
+  closer.blur();
+  return false;
+};
 
 var cursorHoverStyle = "pointer";
 var target = map.getTarget();
@@ -184,10 +203,11 @@ var jTarget = typeof target === "string" ? $("#"+target) : $(target);
 
 // change mouse cursor when over marker
 map.on('pointermove', function(e) {
+	/*
 	if (e.dragging) {
-		$(element).popover('destroy');
+		$(container).popover('destroy');
 		return;
-	}
+	}*/
 	var pixel = map.getEventPixel(e.originalEvent);
 	var hit = map.hasFeatureAtPixel(pixel);
 	if (hit) {
