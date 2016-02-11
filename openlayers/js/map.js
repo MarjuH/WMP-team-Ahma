@@ -123,7 +123,6 @@ function onHelsinkiBtnClicked() {
           source: map.getView().getCenter()
         });
         map.beforeRender(pan);
-        // when we set the new location, the map will pan smoothly to it
         map.getView().setCenter(helsinki);
 		map.getView().setZoom(13);
 }
