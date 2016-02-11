@@ -40,7 +40,9 @@ var iconStyleClosed = new ol.style.Style({
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
         opacity: 1,
-        src: '../img/check.png'
+        src: '../img/check.png',
+		size: [32,32],
+		scale: 0.8
      }))
 });
 
@@ -51,7 +53,8 @@ var iconStyleOpen = new ol.style.Style({
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
         opacity: 1,
-        src: '../img/cancel.png'
+        src: '../img/cancel.png',
+		size: [32,32]
      }))
 });
 
