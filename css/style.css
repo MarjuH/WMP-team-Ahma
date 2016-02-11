@@ -23,11 +23,23 @@ html, body {
 }
 
 
-.toggleButton{
+#toggleButton {
     position: absolute;
 	z-index: 2;
-    top: 10px;
+    top: 30px;
     left: 280px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;	
+}
+
+#toggleButton.toggled {
+	left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 
@@ -58,6 +70,8 @@ html, body {
     transition: all 0.5s ease;
 	
 }
+
+#
 
 #wrapper.toggled #sidebar-wrapper {
     width: 280px;
