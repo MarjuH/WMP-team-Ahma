@@ -42,7 +42,7 @@ var iconStyleClosed = new ol.style.Style({
         opacity: 1,
         src: '../img/check.png',
 		size: [32,32],
-		scale: 0.8
+		scale: 0.85
      }))
 });
 
