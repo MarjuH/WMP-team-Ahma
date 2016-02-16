@@ -27,7 +27,7 @@ html, body {
     position: absolute;
 	z-index: 2;
     top: 30px;
-    left: 280px;
+    left: 300px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -52,16 +52,16 @@ html, body {
 }
 
 #wrapper.toggled {
-    padding-left: 280px;
+    padding-left: 300px;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 280px;
+    left: 300px;
     width: 0;
     height: 100%;
-    margin-left: -280px;
+    margin-left: -300px;
     overflow-y: auto;
     background: #00337F;
     -webkit-transition: all 0.5s ease;
@@ -74,7 +74,7 @@ html, body {
 #
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 280px;
+    width: 300px;
 }
 
 #page-content-wrapper {
@@ -84,7 +84,7 @@ html, body {
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -280px;
+    margin-right: -300px;
 }
 
 /* Sidebar Styles */
@@ -102,12 +102,12 @@ img.top {
 }
 
 .calendar {
-	width: 220px;
+	width: 260px;
 	padding: 10px;
 	padding-top: 0px;
 }
 .dropdown {
-	width: 220px;
+	width: 260px;
 	padding: 10px;
 	padding-top: 0px;
 }
@@ -129,7 +129,7 @@ label {
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 260px;
+    width: 280px;
     margin: 0;
     padding: 10px;
     list-style: none;
@@ -184,7 +184,7 @@ label {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 280px;
+        padding-left: 300px;
     }
 
     #wrapper.toggled {
@@ -192,7 +192,7 @@ label {
     }
 
     #sidebar-wrapper {
-        width: 280px;
+        width: 300px;
     }
 
     #wrapper.toggled #sidebar-wrapper {

@@ -21,15 +21,13 @@ function onToggleMenu(){
 	$("#toggleButton").toggleClass("toggled");
 	$("#toggleButtonIcon").toggleClass("glyphicon-chevron-left glyphicon-chevron-right");    
 }
-	
+
 $(function () {
-	
 	$('#datepicker-start').datetimepicker({
 		defaultDate: moment().subtract(1, 'months'),
 		locale: 'fi',
 		format: 'L',
 	});
-	
 });
 
 $(function () {
@@ -37,9 +35,8 @@ $(function () {
 		defaultDate: moment(),
 		locale: 'fi',
 		format: 'L',
+		showTodayButton: true,
 	});
-	
-	
 });
 
 function resolveParameters() {
