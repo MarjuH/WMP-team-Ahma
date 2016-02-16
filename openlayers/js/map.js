@@ -158,7 +158,6 @@ var popup = new ol.Overlay({
 	autoPanAnimation: {
 	  duration: 250
 	}
-	//stopEvent: false
 });
 map.addOverlay(popup);
 
@@ -189,15 +188,7 @@ map.on('singleclick', function(evt) {
 	// Offset the popup so it points at the middle of the marker not the tip
 	popup.setPosition(coord);
 	
-	/*
-    $(content).attr('data-placement', 'top');
-	$(content).attr('data-html', true);
-	$(content).attr('data-content', info);
-    $(content).popover('show');
-	*/
-	
-  } else {
-    //$(container).popover('destroy');
+
   }
 });
 
@@ -214,11 +205,7 @@ var jTarget = typeof target === "string" ? $("#"+target) : $(target);
 
 // change mouse cursor when over marker
 map.on('pointermove', function(e) {
-	/*
-	if (e.dragging) {
-		$(container).popover('destroy');
-		return;
-	}*/
+
 	var pixel = map.getEventPixel(e.originalEvent);
 	var hit = map.hasFeatureAtPixel(pixel);
 	if (hit) {
@@ -229,7 +216,6 @@ map.on('pointermove', function(e) {
 });
 
 
-// get name for the popup window
 
 
 
