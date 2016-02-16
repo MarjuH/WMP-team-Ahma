@@ -5,6 +5,10 @@ For Aalto University course
 Our web maps can be viewed here:
 http://users.aalto.fi/~tarnana1/WMP-team-Ahma/
 
+Data
+
+* Helsinki Open311 API (http://dev.hel.fi/apis/open311/)
+
 Technologies used
 
 * Google Maps API (https://developers.google.com/maps/documentation/javascript/)
