@@ -218,21 +218,40 @@ PopUp OL
 	position: absolute;
 	left: -200px;
 	background-color: #0072C6;
-	color: #FFF;
-	padding: 10px;
 	border-radius: 10px;
 	border: 1px solid #FFF;
-	bottom: 40px;
-	max-height: 400px;
-	width: 400px;
-    overflow-y: auto;
+	bottom: 40px;	
+	width: 400px;    
+}
+#popup-content{
+	color: #FFF;
+	padding: 10px;
+	max-height: 300px;
+	overflow-y: auto;
 }
 
-/* OL zoom position */
+#popup:after, #popup:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
 
-.ol-control.ol-zoom {
-   right: 8px;
-   left: auto
+#popup:after {
+	border-color: rgba(0, 114, 198, 0);
+	border-top-color: #0072C6;
+	border-width: 10px;
+	margin-left: -10px;
+}
+#popup:before {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #ffffff;
+	border-width: 11px;
+	margin-left: -11px;
 }
 
 .ol-popup-closer {
@@ -244,4 +263,11 @@ PopUp OL
 }
 .ol-popup-closer:after {
 	content: "✖";
+}
+
+/* OL zoom position */
+
+.ol-control.ol-zoom {
+   right: 8px;
+   left: auto
 }

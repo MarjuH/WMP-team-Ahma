@@ -70,6 +70,8 @@ var vectorLayerOpen = new ol.layer.Vector({
     source: vectorSourceOpen,
     style: iconStyleOpen
 });	 
+
+var HelsinkiCoord = {lat: 60.211, lon: 24.948};
 	  
 var map = new ol.Map({
 	target: 'map',
@@ -84,8 +86,8 @@ var map = new ol.Map({
 		vectorLayerOpen
 	],
 	view: new ol.View({
-		center: ol.proj.fromLonLat([24.955494, 60.18]),
-		zoom: 13
+		center: ol.proj.fromLonLat([HelsinkiCoord.lon, HelsinkiCoord.lat]),
+		zoom: 12
 	})     
 });	 
 
@@ -106,6 +108,7 @@ function onLoadData() {
 			if (this.long !== undefined || this.lat !== undefined) {
 					
 				var lonlat = [parseFloat(this.long), parseFloat(this.lat)];
+				var datetime = moment(this.requested_datetime).format("DD.MM.YYYY");
 				var feature = new ol.Feature({
 					geometry: new ol.geom.Point(ol.proj.fromLonLat(lonlat)),
 					name: this.service_request_id,
@@ -113,7 +116,8 @@ function onLoadData() {
 					description: this.description,
 					status: this.status,
 					status_notes: this.status_notes,
-					address: this.address
+					address: this.address,
+					date: datetime
 				});
 				
 				if (this.status === 'open'){
@@ -132,14 +136,14 @@ function onLoadData() {
 	
 	
 }
-var helsinki = ol.proj.fromLonLat([24.955494, 60.18])
+var helsinki = ol.proj.fromLonLat([HelsinkiCoord.lon, HelsinkiCoord.lat]);
 function onHelsinkiBtnClicked() {
 	var pan = ol.animation.pan({
           source: map.getView().getCenter()
         });
         map.beforeRender(pan);
         map.getView().setCenter(helsinki);
-		map.getView().setZoom(13);
+		map.getView().setZoom(12);
 }
 
 // Create a popup overlay which will be used to display feature info
@@ -171,6 +175,7 @@ map.on('singleclick', function(evt) {
 	var props = feature.getProperties();
 	
 	var info = "<h4>" + props.service_code + " osoitteessa: <br>" + props.address + "</h4>";
+		info += "<p>" + props.date + "</p>";
 		info += "<p>" + props.description + "</p>";
 		
 	content.innerHTML = info;
