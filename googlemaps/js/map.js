@@ -34,8 +34,11 @@ function onLoadData(params) {
 					scaledSize : new google.maps.Size(28, 28),
 				}
 			}
+			var datetime = moment(data.requested_datetime).format("DD.MM.YYYY");
+			
 			var content = "<h4>" + getServiceCodeName(data.service_code) + 
 				" osoitteessa: <br>" + data.address + "</h4>" +
+				"<p>" + datetime + "</p>" +
 				data.description;
 
 			var marker = new google.maps.Marker({
@@ -228,9 +231,10 @@ function initialize() {
   var styledMap = new google.maps.StyledMapType(styles,
     {name: "Light Map"});
 
+  var HelsinkiCoord = {lat: 60.211, lon: 24.948};
   center = {
 	zoom: 12,
-	latlng : (new google.maps.LatLng(60.211, 24.948))
+	latlng : (new google.maps.LatLng(HelsinkiCoord.lat, HelsinkiCoord.lon))
   }
 
   // Create a map object, and include the MapTypeId to add
