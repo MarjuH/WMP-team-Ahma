@@ -11,7 +11,8 @@ Technologies used
 * OpenLayers 3 (http://openlayers.org/)
 * Bootstrap (http://getbootstrap.com/) along with basic HTML and CSS. 
 * Functionalities were handled utilizing JavaScript with jQuery. 
-* Bootstrap 3 Datepicker plug-in (http://eonasdan.github.io/bootstrap-datetimepicker/) and Moment.js (http://momentjs.com/) library for localized formatting of dates. It was also necessary with handling the dates from the API.
+* Bootstrap 3 Datepicker plug-in (http://eonasdan.github.io/bootstrap-datetimepicker/) and 
+* Moment.js (http://momentjs.com/)
 
 Background maps
 
