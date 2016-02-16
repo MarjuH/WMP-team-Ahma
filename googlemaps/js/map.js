@@ -34,12 +34,17 @@ function onLoadData(params) {
 					scaledSize : new google.maps.Size(28, 28),
 				}
 			}
-			var datetime = moment(data.requested_datetime).format("DD.MM.YYYY");
+			var requested_datetime = moment(data.requested_datetime).format("DD.MM.YYYY");
+			var updated_datetime = moment(data.updated_datetime).format("DD.MM.YYYY");
 			
 			var content = "<h4>" + getServiceCodeName(data.service_code) + 
 				" osoitteessa: <br>" + data.address + "</h4>" +
-				"<p>" + datetime + "</p>" +
-				data.description;
+				"<p>Palaute jätetty: " + requested_datetime;
+				if (this.status === 'closed') {
+					content += "<br>Palaute käsitelty: " + updated_datetime;
+				} 
+				content += "</p>";
+				content += data.description;
 
 			var marker = new google.maps.Marker({
 				position: latLng,

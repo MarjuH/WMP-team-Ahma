@@ -108,7 +108,8 @@ function onLoadData() {
 			if (this.long !== undefined || this.lat !== undefined) {
 					
 				var lonlat = [parseFloat(this.long), parseFloat(this.lat)];
-				var datetime = moment(this.requested_datetime).format("DD.MM.YYYY");
+				var requested_datetime = moment(this.requested_datetime).format("DD.MM.YYYY");
+				var updated_datetime = moment(this.updated_datetime).format("DD.MM.YYYY");
 				var feature = new ol.Feature({
 					geometry: new ol.geom.Point(ol.proj.fromLonLat(lonlat)),
 					name: this.service_request_id,
@@ -117,7 +118,8 @@ function onLoadData() {
 					status: this.status,
 					status_notes: this.status_notes,
 					address: this.address,
-					date: datetime
+					requested_datetime: requested_datetime,
+					updated_datetime: updated_datetime
 				});
 				
 				if (this.status === 'open'){
@@ -175,7 +177,11 @@ map.on('singleclick', function(evt) {
 	var props = feature.getProperties();
 	
 	var info = "<h4>" + props.service_code + " osoitteessa: <br>" + props.address + "</h4>";
-		info += "<p>" + props.date + "</p>";
+		info += "<p>Palaute jätetty: " + props.requested_datetime;
+		if (props.status === "closed") {
+			info += "<br>Palaute käsitelty: " + props.updated_datetime;
+		}
+		info += "</p>";
 		info += "<p>" + props.description + "</p>";
 		
 	content.innerHTML = info;
