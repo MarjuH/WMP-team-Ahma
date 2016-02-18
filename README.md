@@ -12,6 +12,7 @@ Data
 Technologies used
 
 * Google Maps API (https://developers.google.com/maps/documentation/javascript/)
+* MarkerClusterer Utility Library for clustering in Google Maps (https://github.com/googlemaps/js-marker-clusterer)
 * OpenLayers 3 (http://openlayers.org/)
 * Bootstrap (http://getbootstrap.com/) along with basic HTML and CSS. 
 * Functionalities were handled utilizing JavaScript with jQuery. 
